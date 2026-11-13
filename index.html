@@ -259,6 +259,13 @@ html.m-lock,html.m-lock body{overflow:hidden}
 .safe{display:flex;gap:8px;align-items:flex-start;font-size:12px;line-height:1.45;color:#b8c6db;margin-top:12px}
 .safe svg{flex-shrink:0;margin-top:1px}
 /* footer */
+.top-r{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.top-logo{min-width:0}.top-logo img{max-width:100%}
+@media(max-width:400px){.top-logo img{height:38px}.call{padding:8px 10px;font-size:12.5px}.tg-ic{width:34px;height:34px}}
+.tg-ic{width:36px;height:36px;border-radius:50%;background:#229ed9;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.btn-tg{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;padding:13px;border-radius:10px;border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-size:15px;font-weight:600;text-decoration:none}
+.btn-tg svg{color:#5cc3f5}
+.foot-row .tg-svg{color:#229ed9}
 .foot{margin-top:28px;padding:24px 18px 20px;background:var(--bg2);border-top:1px solid var(--line)}
 .foot img{height:44px;width:auto;display:block;margin-bottom:12px;mix-blend-mode:multiply}
 .foot-legal{font-size:12.5px;color:var(--text2);line-height:1.55;margin-bottom:14px}
@@ -355,7 +362,7 @@ html.m-lock,html.m-lock body{overflow:hidden}
 
   <header class="top">
     <a class="top-logo" href="#"><img src="assets/img/logo.webp" alt="Захист UA"></a>
-    <a class="call" href="tel:+380930171020"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2.5 1.8H5.2L6.4 4.9L4.8 6.1C5.7 7.8 7.2 9.3 8.9 10.2L10.1 8.6L13.2 9.8V12.5C13.2 13 12.8 13.3 12.3 13.3C6.5 13.1 1.9 8.5 1.7 2.7C1.7 2.2 2 1.8 2.5 1.8Z" fill="currentColor"/></svg> Зателефонувати</a>
+    <div class="top-r"><a class="tg-ic" href="https://t.me/zakhystua_bot" target="_blank" rel="noopener" aria-label="Написати в Telegram" data-tg><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5Z"/></svg></a><a class="call" href="tel:+380930171020"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2.5 1.8H5.2L6.4 4.9L4.8 6.1C5.7 7.8 7.2 9.3 8.9 10.2L10.1 8.6L13.2 9.8V12.5C13.2 13 12.8 13.3 12.3 13.3C6.5 13.1 1.9 8.5 1.7 2.7C1.7 2.2 2 1.8 2.5 1.8Z" fill="currentColor"/></svg> Зателефонувати</a></div>
   </header>
 
   <!-- HERO -->
@@ -478,6 +485,7 @@ html.m-lock,html.m-lock body{overflow:hidden}
       <p class="ok" id="ok">✓ Заявку прийнято. Юрист зателефонує вам найближчим часом.</p>
       <p class="ok" id="fail" style="color:#ffb3b3">Не вдалося надіслати заявку. Зателефонуйте нам: <a href="tel:+380930171020" style="color:#fff">093 017 10 20</a></p>
     </form>
+    <a class="btn-tg" href="https://t.me/zakhystua_bot" target="_blank" rel="noopener" data-tg><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5Z"/></svg> Або напишіть нам у Telegram</a>
     <p class="fin-micro">Зателефонуємо протягом 30 хвилин у робочий час</p>
     <div class="safe">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L12 3V7C12 10 9.8 12.2 7 13C4.2 12.2 2 10 2 7V3Z" stroke="#9ee6b8" stroke-width="1.3"/><path d="M4.8 7L6.4 8.6L9.4 5.6" stroke="#9ee6b8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -495,6 +503,7 @@ html.m-lock,html.m-lock body{overflow:hidden}
       <span class="map-go">Маршрут →</span>
     </a>
     <div class="foot-row"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2.5 1.8H5.2L6.4 4.9L4.8 6.1C5.7 7.8 7.2 9.3 8.9 10.2L10.1 8.6L13.2 9.8V12.5C13.2 13 12.8 13.3 12.3 13.3C6.5 13.1 1.9 8.5 1.7 2.7C1.7 2.2 2 1.8 2.5 1.8Z" fill="currentColor"/></svg><a href="tel:+380930171020">+380 93 017 10 20</a></div>
+    <div class="foot-row"><svg class="tg-svg" width="15" height="15" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5Z"/></svg><a href="https://t.me/zakhystua_bot" target="_blank" rel="noopener" data-tg>Telegram-бот: @zakhystua_bot</a></div>
     <div class="foot-row"><svg width="15" height="15" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.8" stroke="currentColor" stroke-width="1.5"/><path d="M7 4V7.2L9 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Пн–Пт 8:00–17:00 · Сб 9:00–16:00 · Нд вихідний</span></div>
     <div class="foot-links"><a href="#privacy" data-modal="mPrivacy">Політика конфіденційності</a><a href="#privacy" data-modal="mContract">Договір про надання послуг</a></div>
     <div class="foot-copy">© 2026 Захист UA. Інформація на сайті не є публічною офертою.</div>
@@ -527,6 +536,7 @@ html.m-lock,html.m-lock body{overflow:hidden}
 
 <div class="sticky" id="sticky"><button class="btn-o" data-go="#quiz">→ Перевірити, чи мені недоплатили</button></div>
 
+<script>document.querySelectorAll('[data-tg]').forEach(a=>a.addEventListener('click',()=>{try{fbq('track','Contact',{channel:'telegram'})}catch(e){}}));</script>
 <script>const IMG={"case1": "assets/img/case1.webp", "case2": "assets/img/case2.webp", "case3": "assets/img/case3.webp", "case4": "assets/img/case4.webp", "shot1": "assets/img/shot1.webp", "shot2": "assets/img/shot2.webp", "shot3": "assets/img/shot3.webp", "shot4": "assets/img/shot4.webp", "rev1": "assets/img/rev1.webp", "rev2": "assets/img/rev2.webp", "rev3": "assets/img/rev3.webp", "rev4": "assets/img/rev4.webp", "rev5": "assets/img/rev5.webp", "lawyer": "assets/img/lawyer.webp", "logo": "assets/img/logo.webp"};</script>
 <script>
 document.getElementById('lawyerImg').src=IMG.lawyer;
