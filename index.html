@@ -655,6 +655,19 @@ new IntersectionObserver(([e])=>{if(e.isIntersecting&&!formSeen){formSeen=true;t
 // FORM
 const esc=t=>String(t||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 let sent=false;
+// Захист від дублів: пам'ятаємо телефон у браузері на 30 днів
+const LKEY='zx_leads',LTTL=30*864e5;
+const normPh=v=>String(v||'').replace(/\D/g,'').slice(-9);
+const getLeads=()=>{try{return (JSON.parse(localStorage.getItem(LKEY))||[]).filter(x=>x&&x.p&&Date.now()-x.t<LTTL)}catch(e){return []}};
+const saveLead=ph=>{try{const a=getLeads().filter(x=>x.p!==ph);a.push({p:ph,t:Date.now()});localStorage.setItem(LKEY,JSON.stringify(a))}catch(e){}};
+const showAlready=()=>{
+  const f=document.getElementById('lead'),ok=document.getElementById('ok');
+  f.querySelectorAll('.field,.consent').forEach(el=>el.style.display='none');
+  const b=document.getElementById('submitBtn');b.disabled=true;b.style.opacity=.7;b.textContent='✓ Заявку прийнято';
+  ok.textContent='✓ Ваша заявка вже у нас. Юрист зателефонує вам найближчим часом.';ok.style.display='block';
+  document.getElementById('fail').style.display='none';sent=true;
+};
+if(getLeads().length)showAlready();
 document.getElementById('lead').addEventListener('submit',async e=>{
   e.preventDefault();
   if(sent)return;
@@ -665,6 +678,8 @@ document.getElementById('lead').addEventListener('submit',async e=>{
   if(!c.checked){cl.classList.add('err');bad=true}else cl.classList.remove('err');
   if(bad){(p.classList.contains('err')?p:c).focus();return}
 
+  const ph=normPh(p.value);
+  if(getLeads().some(x=>x.p===ph)){showAlready();return}
   btn.disabled=true;btn.style.opacity=.7;btn.textContent='Надсилаємо…';
   const quiz=answers.length?answers.map(x=>'• '+esc(x.q)+' — <b>'+esc(x.a)+'</b>').join('\n'):'• квіз не проходив';
   const text=
@@ -683,7 +698,7 @@ document.getElementById('lead').addEventListener('submit',async e=>{
     ok=r.ok;
   }catch(err){ok=false}
   if(ok){
-    sent=true;
+    sent=true;saveLead(ph);
     track('Lead',{content_name:'Indexation lead',service:answers[0]&&answers[0].a});
     document.getElementById('ok').style.display='block';document.getElementById('fail').style.display='none';
     btn.textContent='✓ Надіслано';
